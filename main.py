@@ -16,13 +16,13 @@ def main(filepath):
         # make it txt
 	with open(filepath) as fp:
             ln_count = 0;
-            blob = ""
+            blob = []
             for line in fp:
                 ln_count += 1
                 if ln_count // 10 == 0:
                     emotions.append(emotion.get(blob))
                 else:
-                    blob += line
+                    blob.append(unicode(line, "utf-8"))
 		input = nlp.preprocess(line)
 		input = utils.unique(input)
                 print(input)

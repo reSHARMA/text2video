@@ -1,10 +1,12 @@
 import os
 import csv
+import sys
+sys.path.insert(0, './DeepMoji/examples')
+import score_texts_emojis
 
 def get(text):
     # return the list of emoji using Deepmoji
-    cmd = "python ./DeepMoji/examples/score_texts_emojis.py \"" + text + "\""
-    os.system(cmd)
+    score_texts_emojis.predict(text)
     with open('test_sentences.csv', 'rb') as f:
         reader = csv.reader(f)
         return list(reader)
