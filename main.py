@@ -8,8 +8,7 @@ import image
 import music
 import video
 
-def main():  
-	filepath = sys.argv[1]
+def main(filepath):  
         emotions = []
 	if not os.path.isfile(filepath):
             print("File path does not exist. Exiting...".format(filepath))
@@ -32,5 +31,3 @@ def main():
         mood = emotion.process(emotions)
         song = music.getSong(mood)
         video.generate(song, "Awesomevideo", "mp4")
-
-main()
