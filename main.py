@@ -29,5 +29,6 @@ def main(filepath):
                 sel.getImage(' '.join(input))
                 image.join(line, ln_count)
         mood = emotion.process(emotions)
+        print(mood)
         song = music.getSong(mood)
         video.generate(song, "Awesomevideo", "mp4")
