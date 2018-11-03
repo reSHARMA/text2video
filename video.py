@@ -10,5 +10,4 @@ def generate(song, name, ext):
             cmd.append("/tmp/t2vimage-"+ str(count) + ".png")
             count += 1
     cmd.append("/tmp/" + str(name) + ".mp4")
-
     subprocess.call(cmd)
