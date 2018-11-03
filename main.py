@@ -19,8 +19,9 @@ def main(filepath):
             blob = []
             for line in fp:
                 ln_count += 1
-                if ln_count // 10 == 0:
+                if ln_count % 10 == 0:
                     emotions.append(emotion.get(blob))
+                    blob = []
                 else:
                     blob.append(unicode(line, "utf-8"))
 		input = nlp.preprocess(line)
@@ -28,6 +29,8 @@ def main(filepath):
                 print(input)
                 sel.getImage(' '.join(input))
                 image.join(line, ln_count)
+        if len(blob) != 0:
+            emotions.append(emotion.get(blob))
         mood = emotion.process(emotions)
         print(mood)
         song = music.getSong(mood)
