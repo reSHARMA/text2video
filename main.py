@@ -34,4 +34,5 @@ def main(filepath):
         mood = emotion.process(emotions)
         print(mood)
         song = music.getSong(mood)
+        song = "./music/" + mood + "/" + song
         video.generate(song, "Awesomevideo", "mp4")

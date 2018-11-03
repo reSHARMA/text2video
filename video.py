@@ -9,5 +9,7 @@ def generate(song, name, ext):
             cmd.append("200")
             cmd.append("/tmp/t2vimage-"+ str(count) + ".png")
             count += 1
-    cmd.append("/tmp/" + str(name) + ".mp4")
+    cmd.append("/tmp/tv2.mp4")
+    subprocess.call(cmd)
+    cmd = ["ffmpeg",  "-i", "/tmp/t2v.mp4", "-i", song, "-codec", "copy", "-shortest", "/tmp/" + str(name) + ".mp4"]
     subprocess.call(cmd)
