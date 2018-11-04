@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 import file
 
 UPLOAD_FOLDER = 'static/doc'
@@ -20,8 +20,9 @@ def upload():
         data.save(os.path.join(app.config['UPLOAD_FOLDER'], data.filename))
 #        filename = docs.save(request.files['doc'])
         file.start(data.filename)
+        url=url_for('static', filename='Awesomevideo.mp4')
+        return render_template('results.html', link=url)
     return render_template('upload.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)

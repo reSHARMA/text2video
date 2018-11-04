@@ -1,10 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en" >
 
 <head>
 
   <meta charset="UTF-8">
-  <title>Upload</title>
+  <title>Results!</title>
   
   
   
@@ -13,7 +15,7 @@
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
-  width: 460px;
+  width: 560px;
   padding: 8% 0 0;
   margin: auto;
 }
@@ -102,6 +104,7 @@
 }
 body {
   background: #00ddff; /* fallback for old browsers */
+
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
@@ -109,7 +112,65 @@ body {
 h1 {
   color:white;
   font-size:40px;
-  margin-bottom:30% ;
+  margin-bottom:10% ;
+}
+.pulse-button {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: 1%;
+  display: block;
+  width: 100px;
+  height: 100px;
+  font-size: 1.3em;
+  font-weight: light;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 100px;
+  letter-spacing: -1px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  background: #5a99d4;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(90, 153, 212, 0.5);
+  -webkit-animation: pulse 1.5s infinite;
+}
+
+.pulse-button:hover {
+  -webkit-animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  70% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+  }
+  100% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+  }
+}
+.a2a_kit{
+  margin-top:10% !important;
+}
+a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
     </style>
 
@@ -123,12 +184,21 @@ h1 {
 <body translate="no" >
 
   <div class="login-page">
-  <h1> Upload text file (txt / pdf) </h1>
+  <h1> Your awesome video is here! </h1>
   <div class="form">
-<form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
-    <input type=file name=doc>
-    <input type="submit">
-</form>
+    <a href="{{link}}"><span class='pulse-button'> GET IT </span></a>
+    
+    <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_whatsapp"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
   </div>
 </div>
   
