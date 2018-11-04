@@ -11,6 +11,23 @@
   
       <style>
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+        div#loader {
+            position: absolute;
+               top: 30%;
+            left: 40%;
+            z-index: 100;
+            visibility: hidden;
+        }
+        .overlay {
+	visibility: hidden;
+                height: 100%;
+            position: absolute;
+            z-index: 50;
+            background-color: black;
+            opacity: 0.4;
+            top: 0px;
+            width: 100%;
+        }
 
 .login-page {
   width: 460px;
@@ -111,6 +128,7 @@ h1 {
   font-size:40px;
   margin-bottom:30% ;
 }
+
     </style>
 
   
@@ -121,18 +139,31 @@ h1 {
 </head>
 
 <body translate="no" >
-
+	<div class="overlay"></div>
+	<div id="loader"><img src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif"></div>
   <div class="login-page">
   <h1> Upload text file (txt / pdf) </h1>
   <div class="form">
 <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
     <input type=file name=doc>
-    <input type="submit">
+    <input id="next" type="submit">
 </form>
   </div>
 </div>
   
-  
+<script>
+function rotate(){
+	        document.getElementsByClassName("overlay")[0].style.visibility = "visible";
+		        document.getElementById("loader").style.visibility = "visible";
+}
+function init(){
+	        document.getElementById('next').onclick=
+			                function(){
+						                        rotate();
+									                };
+}
+window.onload=init;
+</script>
   
   
   
